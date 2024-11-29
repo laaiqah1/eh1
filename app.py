@@ -50,7 +50,11 @@ uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png
 if uploaded_file is not None:
     # Display image
     image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image', use_column_width=True)
+    st.image(image, caption='Uploaded Image', use_container_width=True)
+
+    # Convert image to RGB if it's in a different mode (e.g., 'P')
+    if image.mode != 'RGB':
+        image = image.convert('RGB')
 
     # Convert image to byte array
     img_byte_array = io.BytesIO()
