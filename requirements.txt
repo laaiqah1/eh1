@@ -1,0 +1,5 @@
+streamlit
+sagemaker
+boto3
+Pillow
+requests
